@@ -1,22 +1,14 @@
 import { links } from "@/lib/data";
-import Link from "next/link";
-import { poppins } from "./fonts";
+import { LinkDropdown } from "@/components/home/LinkDropdown";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full h-full">
-      <p className={`text-center p-2 border-b`}>Google map experiment</p>
-      <div className="w-full h-full flex gap-2">
+    <>
+      <div className="w-full h-full flex ">
         {links.map((link) => (
-          <Link
-            key={link.id}
-            href={`${link.path}`}
-            className={` ${poppins.className}`}
-          >
-            {link.title}
-          </Link>
+          <LinkDropdown key={link.id} link={link} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
